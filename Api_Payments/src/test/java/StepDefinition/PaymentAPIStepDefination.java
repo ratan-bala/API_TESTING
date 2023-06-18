@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class RahulShettyStepdefinition {
+public class PaymentAPIStepDefination {
     RequestSpecification requestSpecification;
     Response response;
 
