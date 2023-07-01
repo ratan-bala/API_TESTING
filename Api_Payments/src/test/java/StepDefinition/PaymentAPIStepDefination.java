@@ -24,7 +24,7 @@ public class PaymentAPIStepDefination {
      */
     @Given("User send URl Base Url as {string}")
     public void User_send_URl_Base_Url_as(String Url){
-        requestSpecification=given().log().all().baseUri(Url);
+        requestSpecification=given().log().all().relaxedHTTPSValidation("https://acquiring-1-acquiring-qa.apps.greencluster.openshift.com").baseUri(Url);
 
 
     }
