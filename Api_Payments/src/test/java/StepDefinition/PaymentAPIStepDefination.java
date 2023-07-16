@@ -27,6 +27,7 @@ public class PaymentAPIStepDefination {
         requestSpecification=given().log().all().relaxedHTTPSValidation("https://acquiring-1-acquiring-qa.apps.greencluster.openshift.com").baseUri(Url);
 
 
+
     }
 
     /**

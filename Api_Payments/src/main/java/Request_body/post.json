@@ -1,11 +1,13 @@
 {
   "terminalId":"Terminal02",
-  "startDate":"01-01-2023",
-  "endDate":"01-06-2023",
+  "startDate":"01-01-2022",
+  "endDate":"01-05-2022",
   "userProfile":
   {
-    "subscription":"premium"
+    "subscription":"standard"
   }
 }
+
+
 
 
