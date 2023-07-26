@@ -3,6 +3,8 @@ package StepDefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.config.RestAssuredConfig;
+import io.restassured.config.SSLConfig;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -24,9 +26,8 @@ public class PaymentAPIStepDefination {
      */
     @Given("User send URl Base Url as {string}")
     public void User_send_URl_Base_Url_as(String Url){
-        requestSpecification=given().log().all().relaxedHTTPSValidation("https://acquiring-1-acquiring-qa.apps.greencluster.openshift.com").baseUri(Url);
-
-
+        //requestSpecification=given().log().all().relaxedHTTPSValidation("https://acquiring-1-acquiring-qa.apps.greencluster.openshift.com").baseUri(Url);
+        requestSpecification=given().config(RestAssuredConfig.newConfig().sslConfig(new SSLConfig().relaxedHTTPSValidation())).baseUri(Url);
 
     }
 
@@ -99,6 +100,7 @@ public class PaymentAPIStepDefination {
     @Then("User expects a Response code of {int}")
     public void User_expects_a_Response_code_of(int code){
         response =response.then().statusCode(code).log().all().extract().response();
+
     }
 
 }
