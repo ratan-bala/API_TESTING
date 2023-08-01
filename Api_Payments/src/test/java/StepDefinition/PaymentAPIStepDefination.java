@@ -33,7 +33,7 @@ public class PaymentAPIStepDefination {
 
     /**
      * This method take data in a data table format with key value pair and then converts the data table into
-     * a List of String map. It later iterates using a for loop and adds the data as qurey parameters to the existing
+     * a List of String map. It later iterates using a for loop and adds the data as query parameters to the existing
      * Request specification.
      * @param Table
      */
@@ -100,6 +100,8 @@ public class PaymentAPIStepDefination {
     @Then("User expects a Response code of {int}")
     public void User_expects_a_Response_code_of(int code){
         response =response.then().statusCode(code).log().all().extract().response();
+
+
 
     }
 
