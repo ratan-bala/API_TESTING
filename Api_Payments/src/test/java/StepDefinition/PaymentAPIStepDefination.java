@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PaymentAPIStepDefination {
     RequestSpecification requestSpecification;
@@ -35,16 +36,22 @@ public class PaymentAPIStepDefination {
      * This method take data in a data table format with key value pair and then converts the data table into
      * a List of String map. It later iterates using a for loop and adds the data as query parameters to the existing
      * Request specification.
-     * @param Table
+     * @param //Table
      */
-    @When("User sends Query Parameter as")
+
+    @When("User sends Query Parameter as {string} and {string}")
+    public void User_sends_Query_Parameter_as_and(String str1, String str2)
+    {
+        requestSpecification=requestSpecification.queryParams(str1,str2);
+    }
+   /** @When("User sends Query Parameter as")
     public void User_sends_Query_Parameter_as(io.cucumber.datatable.DataTable Table){
         List<Map<String, String>> data=Table.asMaps(String.class, String.class);
         for(Map<String,String> pairs:data){
             requestSpecification=requestSpecification.queryParams(pairs.get("Key"),pairs.get("Value"));
         }
 
-    }
+    }*/
 
     /**
      * This method take data in a data table format with key value pair and then converts the data table into
@@ -102,6 +109,21 @@ public class PaymentAPIStepDefination {
         response =response.then().statusCode(code).log().all().extract().response();
 
 
+
+    }
+
+    @Then("Verify response header Business code {string} is {string} and Verify error details {string} in response body is {string}")
+    public void verify_response_header_business_code_is_and_verify_error_details_in_response_body_is(String buscode, String code, String errdetails, String errdata) {
+        {
+            response.then().log().all().header(buscode, equalTo(code))
+                    .body(errdetails, equalTo(errdata));
+        }
+    }
+
+    @Then("Verify response header Business code {string} is {string}")
+    public void verify_Response_Header_Business_code_Is(String arg1, String arg2)
+   {
+       response.then().log().all().header(arg1, equalTo(arg2));
 
     }
 

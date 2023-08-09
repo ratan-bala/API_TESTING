@@ -1,8 +1,10 @@
-{
-  "cardToken":"8351974626035410",
-  "startDate":"02-05-2023",
-  "endDate":"07-05-2023",
-  "userProfile":{
-    "subscription":"Standard"
-  }
-}
+{ 
+
+"cardToken": "8351974626035410", 
+"startDate": "02-05-2023", 
+"endDate": "07-05-2023", 
+"userProfile":{ 
+"subscription": "Standard" 
+
+} 
+} 
